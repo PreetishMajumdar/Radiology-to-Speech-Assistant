@@ -1,81 +1,87 @@
-/* Custom styles for Radiology-to-Speech Assistant */
-
-/* Overall styling */
+/* === Global Reset & Fonts === */
 body {
-    background-color: #f8f9fa;
+    background-color: #f4f7fb;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2d2d2d;
 }
 
+/* === Container === */
 .container {
     max-width: 1200px;
+    padding: 20px;
 }
 
-/* Header styling */
+/* === Header === */
 header h1 {
-    color: #2c3e50;
-    font-weight: 600;
+    color: #1e3a8a;
+    font-weight: 700;
+    font-size: 2.5rem;
 }
 
 header p.lead {
-    color: #7f8c8d;
+    color: #6b7280;
+    font-size: 1.1rem;
 }
 
-/* Card styling */
+/* === Card Styling === */
 .card {
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
     border: none;
+    background-color: #ffffff;
 }
 
 .card-header {
-    background-color: #f1f8ff;
-    border-bottom: 1px solid #e3f2fd;
-    border-top-left-radius: 10px !important;
-    border-top-right-radius: 10px !important;
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 0.8rem 1rem;
 }
 
 .card-header h2 {
-    color: #3498db;
-    font-weight: 600;
+    margin: 0;
+    font-size: 1.1rem;
 }
 
-/* Form styling */
+/* === Form Elements === */
 .form-label {
-    font-weight: 500;
-    color: #2c3e50;
+    font-weight: 600;
+    color: #374151;
 }
 
 .form-control, .form-select {
     border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    padding: 10px 15px;
+    border: 1px solid #cbd5e1;
+    background-color: #f9fafb;
+    transition: 0.2s ease;
 }
 
 .form-control:focus, .form-select:focus {
-    border-color: #4a9df8;
-    box-shadow: 0 0 0 0.2rem rgba(74, 157, 248, 0.25);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.25);
+    background-color: white;
 }
 
+/* === Textarea Styling === */
 textarea.form-control {
     resize: vertical;
 }
 
-/* Button styling */
+/* === Buttons === */
 .btn-primary {
-    background-color: #3498db;
-    border-color: #3498db;
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    font-weight: 600;
     border-radius: 8px;
     padding: 10px 20px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    transition: 0.2s ease-in-out;
 }
 
 .btn-primary:hover, .btn-primary:focus {
-    background-color: #2980b9;
-    border-color: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
+    background-color: #2563eb;
+    border-color: #2563eb;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
 }
 
 .btn-outline-secondary, .btn-outline-primary {
@@ -84,97 +90,85 @@ textarea.form-control {
     transition: all 0.2s ease;
 }
 
-/* Results styling */
+/* === Results === */
 #simplifiedText, #keyFindings {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
     font-size: 0.95rem;
     line-height: 1.6;
+    padding: 15px;
 }
 
-/* Audio player styling */
+/* === Audio Player === */
 audio {
     width: 100%;
-    border-radius: 8px;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
-/* Loading spinner */
+/* === Spinner === */
 .spinner-border {
     width: 3rem;
     height: 3rem;
-    color: #3498db;
+    color: #3b82f6;
 }
 
-/* Responsive adjustments */
+/* === Responsive === */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .card {
-        margin-bottom: 15px;
-    }
-    
     .btn {
         width: 100%;
         margin-bottom: 10px;
     }
-    
     .d-flex {
         flex-direction: column;
     }
 }
 
-/* Accessibility improvements */
+/* === Accessibility === */
 button, a, input, select, textarea {
     transition: all 0.2s;
 }
-
 button:focus, a:focus, input:focus, select:focus, textarea:focus {
-    outline: 2px solid #3498db;
+    outline: 2px solid #3b82f6;
     outline-offset: 2px;
 }
 
-/* Dark mode support (can be toggled with system preferences) */
+/* === Footer === */
+footer {
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+/* === Dark Mode Support === */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #1a1a1a;
-        color: #f0f0f0;
+        background-color: #111827;
+        color: #e5e7eb;
     }
-    
+
     .card {
-        background-color: #2c2c2c;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        background-color: #1f2937;
+        border: 1px solid #374151;
+        box-shadow: none;
     }
-    
+
     .card-header {
-        background-color: #3a3a3a;
-        border-bottom: 1px solid #444;
+        background: linear-gradient(90deg, #2563eb, #3b82f6);
     }
-    
+
     .form-control, .form-select {
-        background-color: #333;
-        border-color: #444;
-        color: #f0f0f0;
+        background-color: #374151;
+        color: #f3f4f6;
+        border-color: #475569;
     }
-    
-    .form-control:focus, .form-select:focus {
-        background-color: #3a3a3a;
-    }
-    
+
     #simplifiedText, #keyFindings {
-        background-color: #333;
-        border-color: #444;
-        color: #f0f0f0;
+        background-color: #374151;
+        border-color: #4b5563;
+        color: #f3f4f6;
     }
-    
+
     .text-muted {
-        color: #aaa !important;
-    }
-    
-    .card-header h2, header h1 {
-        color: #4a9df8;
+        color: #9ca3af !important;
     }
 }
