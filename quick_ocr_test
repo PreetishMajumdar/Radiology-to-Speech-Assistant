@@ -1,0 +1,116 @@
+# quick_ocr_test.py - Quick test for your OCR setup
+
+import os
+
+def test_tesseract():
+    """Quick test to verify Tesseract is working."""
+    print("Testing Tesseract OCR Setup...")
+    print("=" * 40)
+    
+    try:
+        import pytesseract
+        print("✓ pytesseract imported successfully")
+    except ImportError:
+        print("✗ pytesseract not installed. Run: pip install pytesseract")
+        return False
+    
+    # Set Tesseract path
+    tesseract_path = r'D:\Program Files\Tesseract-OCR\tesseract.exe'
+    
+    if os.path.exists(tesseract_path):
+        pytesseract.pytesseract.tesseract_cmd = tesseract_path
+        print(f"✓ Found Tesseract at: {tesseract_path}")
+    else:
+        print(f"✗ Tesseract not found at: {tesseract_path}")
+        return False
+    
+    # Test Tesseract version
+    try:
+        version = pytesseract.get_tesseract_version()
+        print(f"✓ Tesseract version: {version}")
+    except Exception as e:
+        print(f"✗ Failed to get Tesseract version: {e}")
+        return False
+    
+    # Test basic OCR functionality
+    try:
+        from PIL import Image
+        import io
+        
+        # Create a simple test image with text
+        print("Testing basic OCR functionality...")
+        
+        # Test with a simple string (this would normally be an image)
+        test_text = pytesseract.image_to_string("Hello World", lang='eng')
+        print("✓ Basic OCR test completed")
+        
+    except Exception as e:
+        print(f"✗ OCR functionality test failed: {e}")
+        return False
+    
+    print("=" * 40)
+    print("✓ All OCR tests passed! Your setup is working.")
+    return True
+
+def test_pdf_processing():
+    """Test PDF processing with the file you're having trouble with."""
+    pdf_path = "F6.large.pdf"  # Update this path if needed
+    
+    if not os.path.exists(pdf_path):
+        print(f"PDF file not found: {pdf_path}")
+        print("Please place the PDF file in the same directory as this script or update the path.")
+        return False
+    
+    print(f"\nTesting PDF processing with: {pdf_path}")
+    print("=" * 50)
+    
+    try:
+        import fitz
+        import pytesseract
+        from PIL import Image
+        import io
+        
+        # Set Tesseract path
+        pytesseract.pytesseract.tesseract_cmd = r'D:\Program Files\Tesseract-OCR\tesseract.exe'
+        
+        # Open PDF
+        doc = fitz.open(pdf_path)
+        print(f"✓ PDF opened successfully. Pages: {len(doc)}")
+        
+        # Process first page
+        page = doc.load_page(0)
+        pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))  # 2x zoom for better OCR
+        img_data = pix.tobytes("png")
+        
+        print("✓ Converted first page to image")
+        
+        # Convert to PIL Image and perform OCR
+        img = Image.open(io.BytesIO(img_data))
+        text = pytesseract.image_to_string(img, lang='eng')
+        
+        print("✓ OCR completed on first page")
+        print(f"Text length: {len(text)} characters")
+        
+        if text.strip():
+            print("\nFirst 300 characters of extracted text:")
+            print("-" * 50)
+            print(text[:300] + "..." if len(text) > 300 else text)
+            print("-" * 50)
+            print("✓ Text extraction successful!")
+        else:
+            print("⚠ No text was extracted. The page might be blank or contain only images.")
+        
+        doc.close()
+        return True
+        
+    except Exception as e:
+        print(f"✗ PDF processing failed: {e}")
+        return False
+
+if __name__ == "__main__":
+    # Test Tesseract setup
+    if test_tesseract():
+        # Test PDF processing if Tesseract is working
+        test_pdf_processing()
+    else:
+        print("\nPlease fix the Tesseract setup issues before testing PDF processing.")

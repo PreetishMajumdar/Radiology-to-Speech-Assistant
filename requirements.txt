@@ -1,0 +1,26 @@
+# Flask Web Framework
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# Google Generative AI (Gemini API)
+google-generativeai==0.3.1
+
+# Text-to-Speech Options
+gtts==2.4.0
+# google-cloud-texttospeech==2.14.1  # Uncomment if using Google Cloud TTS instead of gTTS
+
+# File Handling
+PyPDF2==3.0.1  # For PDF text extraction
+python-docx==0.8.11  # For DOCX text extraction
+
+# Utility Libraries
+pydub==0.25.1  # Audio processing library
+python-dotenv==1.0.0  # For environment variable management
+requests==2.31.0  # HTTP requests
+uuid==1.30  # For generating unique IDs
+
+pdfplumber==0.10.3  # Better PDF text extraction as fallback
+
+PyMuPDF==1.23.14
+pytesseract==0.3.10
+pillow==10.0.1
