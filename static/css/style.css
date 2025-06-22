@@ -143,32 +143,87 @@ footer {
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #111827;
-        color: #e5e7eb;
+        color: #f9fafb;
     }
 
     .card {
-        background-color: #1f2937;
-        border: 1px solid #374151;
-        box-shadow: none;
+        background-color: #1e293b;
+        border: 1px solid #334155;
     }
 
     .card-header {
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
     }
 
-    .form-control, .form-select {
-        background-color: #374151;
-        color: #f3f4f6;
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: #1f2937;
+        color: #f9fafb;
         border-color: #475569;
     }
 
-    #simplifiedText, #keyFindings {
-        background-color: #374151;
+    .form-control:focus,
+    .form-select:focus,
+    textarea:focus,
+    input:focus {
+        background-color: #1f2937 !important; 
+        color: #f9fafb;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.5);
+    }
+
+    ::placeholder {
+        color: #94a3b8;
+        opacity: 1;
+    }
+
+    select option {
+        background-color: #1f2937;
+        color: #f9fafb;
+    }
+
+    .btn-primary {
+        background-color: #3b82f6;
+        border-color: #3b82f6;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #2563eb;
+        border-color: #2563eb;
+    }
+
+    #simplifiedText,
+    #keyFindings {
+        background-color: #1f2937;
         border-color: #4b5563;
-        color: #f3f4f6;
+        color: #f9fafb;
+    }
+
+    audio {
+        background-color: #1f2937;
     }
 
     .text-muted {
         color: #9ca3af !important;
     }
+
+    .form-label {
+        color: #f3f4f6; /* Light gray (almost white) for readability */
+    }
+
+    label {
+        color: #f3f4f6;
+    }
+
+    header h1 {
+        color: #60a5fa; /* Lighter blue (tailwind's blue-400) */
+    }
+
+    header p.lead {
+        color: #e5e7eb; /* Light gray / white */
+    }
 }
+
