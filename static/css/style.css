@@ -195,12 +195,11 @@ footer {
         border-color: #2563eb;
     }
 
-    #simplifiedText,
-    #keyFindings {
-        background-color: #1f2937;
-        border-color: #4b5563;
-        color: #f9fafb;
-    }
+    #simplifiedText {
+    background-color: #1e293b !important;  /* dark background */
+    color: #f8fafc !important;             /* light readable text */
+    border-color: #334155 !important;     /* optional, darker border */
+  }
 
     audio {
         background-color: #1f2937;
@@ -224,6 +223,30 @@ footer {
 
     header p.lead {
         color: #e5e7eb; /* Light gray / white */
+    }
+
+    #simplifiedText, #keyFindings {
+        background-color: #1f2937; /* dark gray background */
+        color: #f3f4f6; /* light text */
+        border-color: #4b5563;
+    }
+
+    .card-header {
+        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        color: #ffffff; /* Ensure header text is white */
+    }
+
+    /* Optional: Ensure all form labels and section headers are white */
+    .form-label,
+    label,
+    .card-header h2 {
+        color: #f3f4f6;
+    }
+
+    /* Optional: Ensure audio label (e.g. 'Audio:') is visible */
+    #simplifiedText + label,
+    #keyFindings + label {
+        color: #f3f4f6;
     }
 }
 
