@@ -56,27 +56,7 @@ Radiology-to-Speech Assistant is an open-source project that bridges medical ima
 
 | Speech Synthesis  | Gemini API, gTTS         |
 
-## Directory Structure
 
-```
-
-├── app/                # Flask application
-
-│   ├── static/         # CSS, JS, images
-
-│   ├── templates/      # HTML templates
-
-│   └── utils/          # Helper functions, OCR, ML
-
-├── models/             # ML models (planned)
-
-├── data/               # Sample reports/images
-
-├── requirements.txt    # Python dependencies
-
-└── README.md           # Project documentation
-
-```
 
 ## Getting Started
 
